@@ -90,7 +90,7 @@ class WhatAPI:
         try:
             json_response = r.json()
             if json_response["status"] != "success":
-                raise RequestException
+                raise RequestException(json_response["error"])
             return json_response
         except ValueError:
             raise RequestException
